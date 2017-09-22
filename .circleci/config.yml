@@ -19,7 +19,15 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
         
-      # run tests!
+      # run tests
       - run: npm run lint
       - run: npm run test
       - run: npm run build
+
+      # deploy
+      - deploy:
+        name: Deploy
+        command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ] || [ "${CIRCLE_BRANCH}" == "staging" ] ; then
+            bash .circleci/deploy.sh ${CIRCLE_BRANCH}
+          fi
