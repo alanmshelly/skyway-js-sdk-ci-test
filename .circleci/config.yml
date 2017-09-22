@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: iwashi/docker-karma-chrome
+      - image: skywayci/skyway-js-sdk
     working_directory: ~/project
     steps:
       - checkout
