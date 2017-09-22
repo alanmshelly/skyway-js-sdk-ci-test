@@ -26,8 +26,8 @@ jobs:
 
       # deploy
       - deploy:
-        name: Deploy
-        command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ] || [ "${CIRCLE_BRANCH}" == "staging" ] ; then
-            bash .circleci/deploy.sh ${CIRCLE_BRANCH}
-          fi
+          name: Deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ] || [ "${CIRCLE_BRANCH}" == "staging" ] ; then
+              bash .circleci/deploy.sh ${CIRCLE_BRANCH}
+            fi
